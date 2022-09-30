@@ -1,7 +1,7 @@
 const tarjeta = document.getElementById("contenedorTag");
 fetch();
 
-fetch('./api.json')
+fetch('https://mariig16.github.io/apicokiesandmara/data/api.json')
         .then((res)=>res.json())
         .then((data)=>{
         data.forEach((info)=>{
