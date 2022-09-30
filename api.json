@@ -1,0 +1,75 @@
+[
+  {
+    "precio": 5000,
+    "id": 1,
+    "title": "Pastel de chocolate",
+    "foto": "./image/photo1.jpg"
+  },
+  {
+    "precio": 29000,
+    "id": 2,
+    "title": "Pastel de caramelo",
+    "foto": "./image/photo2.jpg"
+  },
+  {
+    "precio": 780,
+    "id": 3,
+    "title": "Pastel de fresas",
+    "foto": "./image/photo3.jpg"
+  },
+  {
+    "precio": 60000,
+    "id": 4,
+    "title": "Pastel de café",
+    "foto": "./image/photo4.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo5.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo6.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo7.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo8.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo9.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo10.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo11.jpg"
+  },
+  {
+    "precio": 45000,
+    "id": 5,
+    "title": "Pastel de crema",
+    "foto": "./image/photo12.jpg"
+  }
+
+]

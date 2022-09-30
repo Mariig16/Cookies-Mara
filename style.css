@@ -1,0 +1,118 @@
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  /* margin: 8px; */
+  position: relative;
+  padding-bottom: 140px;
+}
+a {
+  text-decoration: none;
+  color: #f27474;
+}
+/* a:-webkit-any-link {
+  color: -webkit-link;
+  cursor: pointer;
+  text-decoration: underline;
+} */
+.global-header {
+  background-color: #fff;
+  box-shadow: 0 1px 15px 0 #f27474;
+  height: 140px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-image: url("/Pacientes/image/fondo1.png");
+}
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+  position: relative;
+}
+
+.global-header nav {
+  font-size: 30px;
+  color: #f27474;
+  float: right;
+  margin-top: 60px;
+}
+.global-header ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+.global-header .logo {
+  width: 320px;
+  height: 120px;
+  background-image: url(/Pacientes/image/logo2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.container-tag{
+  margin-bottom: 0;
+}
+
+#contenedorTag{
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag{
+  width:50%; 
+  margin:10px; 
+  padding:5px; 
+}
+
+.btn{
+  color:black;
+}
+.btn-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.table{
+  margin: auto;
+  margin-top: 50px;  
+  width: 25%;
+}
+
+.cuerpo {
+  padding-top: 140px;
+  padding-bottom: 20px;
+  margin-bottom: 0;  
+}
+
+
+.footer {
+  background-color: #fff;
+  box-shadow: 0 1px 15px 0 #f27474;
+  height: 100px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  background-image: url("/Pacientes/image/fondo1.png");
+}
+.page-foot{
+  color: black;
+}
+.footer a {
+  text-decoration: none;
+  color: #000000;
+  -webkit-transition: all 3s;
+  transition: all 3s;
+}
+.footer a:hover {
+  cursor: pointer;
+  color: #a205fd;
+} 
