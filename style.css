@@ -101,7 +101,7 @@ a {
   position: absolute;
   z-index: 100;
   bottom: 0;
-  background-image: url("/Pacientes/image/fondo1.png");
+  background-image: url("./image/fondo1.png");
 }
 .page-foot{
   color: black;
