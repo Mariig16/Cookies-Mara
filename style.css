@@ -24,7 +24,7 @@ a {
   left: 0;
   right: 0;
   z-index: 100;
-  background-image: url("/image/fondo1.png");
+  background-image: url("./image/fondo1.png");
 }
 .page-container {
   max-width: 1000px;
@@ -46,7 +46,7 @@ a {
 .global-header .logo {
   width: 320px;
   height: 120px;
-  background-image: url(/image/logo2.png);
+  background-image: url(./image/logo2.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
