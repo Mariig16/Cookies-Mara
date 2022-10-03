@@ -24,13 +24,18 @@ a {
   left: 0;
   right: 0;
   z-index: 100;
-  background-image: url("./image/fondo1.png");
+  background-image: url("/Pacientes/image/fondo1.png");
 }
 .page-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
   position: relative;
+}
+.page-container .log{
+  float: right;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 .global-header nav {
@@ -46,7 +51,7 @@ a {
 .global-header .logo {
   width: 320px;
   height: 120px;
-  background-image: url(./image/logo2.png);
+  background-image: url(/Pacientes/image/logo2.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -101,7 +106,7 @@ a {
   position: absolute;
   z-index: 100;
   bottom: 0;
-  background-image: url("./image/fondo1.png");
+  background-image: url("/Pacientes/image/fondo1.png");
 }
 .page-foot{
   color: black;

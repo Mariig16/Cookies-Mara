@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       refrescarListaDePacientes();
     } 
     if(bandera == false){
-      swal.fire({
+        swal.fire({
         title: "Alerta",
         text: "Campos incompletos",
         icon: "warning",
