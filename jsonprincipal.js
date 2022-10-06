@@ -1,8 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const tarjeta = document.getElementById("contenedorTag");
   let contenBuy = document.querySelector('.card-items');
+  let priceTotal = document.querySelector('.price-total');
+  let amountProduct = document.querySelector('.count-product');
   
   let compraProducts = [];
+  let totalCard = 0;
+  let countProduct = 0;
   
   
   function productos(){
@@ -36,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains('delete-product')) {
       const deleteId = e.target.getAttribute('data-id');
       
-      buyThings.forEach(value => {
+      compraProducts.forEach(value => {
         if (value.id == deleteId) {
           let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
           totalCard =  totalCard - priceReduce;
@@ -46,6 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
       compraProducts = compraProducts.filter(product => product.id !== deleteId);
       
       countProduct--;
+    }
+    if (compraProducts.length === 0) {
+      priceTotal.innerHTML = 0;
+      amountProduct.innerHTML = 0;
     }
     
     
@@ -62,8 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function readContect(product){
     const infoProduct = {
       image: product.querySelector('div img').src,
-      title: product.querySelector('div h5').textContent,
-      price: product.querySelector('div p span').textContent,
+      price: product.querySelector('div h5').textContent,
+      title: product.querySelector('div p span').textContent,
       id: product.querySelector('a').getAttribute('data-id'),
       amount: 1
     }
@@ -74,23 +82,23 @@ document.addEventListener("DOMContentLoaded", () => {
     totalCard = totalCard.toFixed(2);
     const exist = compraProducts.some(product => product.id === infoProduct.id);
     if (exist) {
-        const pro = compraProducts.map(product => {
-            if (product.id === infoProduct.id) {
-                product.amount++;
-                return product;
-            } else {
-                return product
-            }
-        });
-        compraProducts = [...pro];
+      const pro = compraProducts.map(product => {
+        if (product.id === infoProduct.id) {
+          product.amount++;
+          return product;
+        } else {
+          return product
+        }
+      });
+      compraProducts = [...pro];
     } else {
-        compraProducts = [...buyThings, infoProduct]
-        countProduct++;
+      compraProducts = [...buyThings, infoProduct]
+      countProduct++;
     }
     cargarHtml();
   }
   
-  function cargarHtml(product){
+  function cargarHtml(){
     clearHtml();
     compraProducts.forEach(product =>{
       const {image, title, price, amount, id} = product;
@@ -99,14 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
       row.innerHTML = `
       <img src="${image}" alt="" width="20%">
       <div class="item-content">
-      <h5>${title}</h5>
-      <h5 class="cart-price">${price}$</h5>
+      <h5>${price}</h5>
+      <h5 class="cart-price">${title}$</h5>
       <h6>Amount: ${amount}</h6>
       </div>
       <span class="delete-product" data-id="${id}">X</span>
       `;
       contenBuy.appendChild(row)
-      
+      priceTotal.innerHTML = totalCard;
+      amountProduct.innerHTML = countProduct;
     });
   }
   function clearHtml(){
