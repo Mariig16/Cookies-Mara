@@ -2,23 +2,20 @@ let user = document.getElementById("user");
 let usuario = localStorage.getItem("usuario");
 user.innerHTML = usuario;
 const tabla = document.querySelector('#lista-usuarios tbody');
-let send = document.getElementById("registrarProducto");
+let send = document.getElementById("form");
 
 send.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = new FormData(send);
-  const sendData = new URLSearchParams(data);
-
-  console.log([...sendData]);
-
-  fetch('https://mariig16.github.io/apicokiesandmara/data/api.json',{
-    method: "POST",
-    body: sendData,
+  // const sendData = new URLSearchParams(data);
+  console.log([...data]);
+  fetch('https://my-json-server.typicode.com/Mariig16/apicookies/productos',{
+    method:"POST",
+    body: data,
   })
-  .then(respuesta => respuesta.json())
-  .then(sendData => console.log(sendData))
+  .then(res => res.json())
+  .then(data => console.log(data))
   .catch(err => console.log(err))
-
 });
 
 

@@ -34,16 +34,16 @@
       <img src="./image/Bannerzonasegura.png" class="d-block w-100" alt="...">
     </div>
     <div class="cover-container d-flex w-100 p-3 mx-auto flex-column">
-    <form class="send border-warning p-3 rounded mx-auto" style="width: 30%">
-      <div >
+    <form id="form" class="send border-warning p-3 rounded mx-auto" style="width: 30%">
+      <div >  
+        <label for="precio" >Precio</label>
+        <input type="text" name="iprecio" class="form-control" id="iprecio" aria-describedby="emailHelp" placeholder="Ingrese el precio del producto">
         <label for="id">ID</label>
-        <input type="text" class="form-control" id="iID" aria-describedby="emailHelp" placeholder="Ingrese ID del producto">
-        <label for="precio">Precio</label>
-        <input type="text" class="form-control" id="iprecio" aria-describedby="emailHelp" placeholder="Ingrese el precio del producto">
+        <input type="text" name="iid" class="form-control" id="iID" aria-describedby="emailHelp" placeholder="Ingrese ID del producto">
         <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="inombre" aria-describedby="emailHelp" placeholder="Ingrese el nombre del producto">
+        <input type="text" name="inombre" class="form-control" id="inombre" aria-describedby="emailHelp" placeholder="Ingrese el nombre del producto">
         <label for="nombre">Url</label>
-        <input type="text" class="form-control" id="iurl" aria-describedby="emailHelp" placeholder="Ingrese la URL de la imagen del producto"> 
+        <input type="text" name="url" class="form-control" id="iurl" aria-describedby="emailHelp" placeholder="Ingrese la URL de la imagen del producto"> 
       </div>
       <button type="submit" id="registrarProducto" class="btn btn-primary m-2">Registrar</button>
     </form>

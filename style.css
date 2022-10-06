@@ -118,6 +118,14 @@ a {
   -webkit-transition: all 3s;
   transition: all 3s;
 }
+.cart-products .item span{
+  background-color: red;
+  padding: 0px 5px;
+  border-radius: 50%;
+  color: #fff;
+  font-family: system-ui;
+  cursor: pointer;
+}
 .footer a:hover {
   cursor: pointer;
   color: #a205fd;

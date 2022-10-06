@@ -1,93 +1,116 @@
 document.addEventListener("DOMContentLoaded", () => {
-  class Usuario {
-    constructor(user, password){
-        this.user = user;
-        this.password = password;
-    }
-}
-
-let usuarios= [];
-let usuario = new Usuario("Sasha", "1234");
-let usuario2 = new Usuario("Emiliano", "1234");
   const tarjeta = document.getElementById("contenedorTag");
-  fetch();
-  fetch('https://mariig16.github.io/apicokiesandmara/data/api.json')
-  .then((res)=>res.json())
-  .then((data)=>{
-    data.forEach((info)=>{
-      let caja = document.createElement('div');
-      caja.innerHTML = `
-      <div class="targ row m-2 card">
-      <img src="${info.foto}" class="card-img-top mt-3" alt="...">
-      <div class="card-body">
-      <h5 class="card-title">${info.precio}</h5>
-      <p class="card-text"><span>${info.title}</span></p>
-      <a href="#" class="btn btn-primary mb-1">Comprar</a>   
-      </div>`;
-      tarjeta.appendChild(caja);
+  let contenBuy = document.querySelector('.card-items');
+  
+  let compraProducts = [];
+  
+  
+  function productos(){
+    fetch('https://mariig16.github.io/apicokiesandmara/data/api.json')
+    .then((res)=>res.json())
+    .then((data)=>{
+      data.forEach((info)=>{
+        let caja = document.createElement('div');
+        caja.innerHTML = `
+        <div class="targ row m-2 card">
+        <img src="${info.foto}" class="card-img-top mt-3" alt="...">
+        
+        <h5 class="card-title">${info.precio}</h5>
+        <p class="card-text"><span>${info.title}</span></p>
+        <a href="" data-id="${info.id}" id="btnAdd" class="btn add-to-cart btn-outline-primary">Agregar</a>
+        </div>`
+        ;
+        tarjeta.appendChild(caja);
+      })
     })
-  })
-  let ingresar = document.querySelector("#ingresar");
-  ingresar.addEventListener("click", (e) => {
-    e.preventDefault();
-    swal.fire({
-      title: "ACCESO RESTRINGIDO",
-      text: "Debes iniciar sesión para acceder a este espacio",
-      icon: "warning",
-      confirmButtonText: "Ok",
-      cancelButtonText: "Cancelar",
-      padding: "3em",
-      background: "#f27474",
-      showCancelButton: true,
-      confirmButtonColor: "#000000",
-      cancelButtonColor: "#000000",
-      allowOutsideClick: false,
-      showCloseButton: false,
-    })
-    .then(resultado => {
-      if (resultado.value) {
-        // Hicieron click en "Sí"
-        console.log("*Redirección página de logeo*");
-        window.location.href = "login.html"
-      }
-    });
-  })
-  usuarios.push(usuario,usuario2);
-
-formRegister.addEventListener("submit",(e) => {
-    e.preventDefault();
-    let userLogin = document.getElementById("userRegister").value;
-    let passwordLogin = document.getElementById("passRegister").value;
-
-    if (userLogin && passwordLogin) {
-        let nuevoUsuario = new Usuario (userLogin, passwordLogin);
-
-        usuarios.push(nuevoUsuario)
-        alert("Su registro ha sido exitoso", nuevoUsuario.user)
-        console.log(usuarios)
-    }
-    })
-
-
-
-
-formulario.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let userLogin = document.getElementById("user").value;
-    let passwordLogin = document.getElementById("pass").value;
-
-    for (let user of usuarios) {
-        if (user.user == userLogin && user.password == passwordLogin ) {
-              alert("Acceso correcto");
-              window.location.href = "imc.html"
-              localStorage.setItem("usuario", user.user);
-        } else if ((user.user =! userLogin) && (user.password =! passwordLogin) || 
-        (user.user =! userLogin) || (user.password =! passwordLogin) ) {
-            resultado.innerHTML = `<p> Acceso incorrecto, revise su usuario o contraseña</p>`
+  }
+  productos();
+  
+  loadEventListeners();
+  function loadEventListeners(){
+    tarjeta.addEventListener('click', addProductos);
+    contenBuy.addEventListener('click', deleteProductos);
+  }
+  
+  function deleteProductos(e) {
+    if (e.target.classList.contains('delete-product')) {
+      const deleteId = e.target.getAttribute('data-id');
+      
+      buyThings.forEach(value => {
+        if (value.id == deleteId) {
+          let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
+          totalCard =  totalCard - priceReduce;
+          totalCard = totalCard.toFixed(2);
         }
+      });
+      compraProducts = compraProducts.filter(product => product.id !== deleteId);
+      
+      countProduct--;
     }
-})
+    
+    
+    cargarHtml();
+  }
+  function addProductos(e){
+    e.preventDefault();
+    if(e.target.classList.contains('btn')){
+      const selectProduct = e.target.parentElement;
+      readContect(selectProduct);
+    }
+    
+  }
+  function readContect(product){
+    const infoProduct = {
+      image: product.querySelector('div img').src,
+      title: product.querySelector('div h5').textContent,
+      price: product.querySelector('div p span').textContent,
+      id: product.querySelector('a').getAttribute('data-id'),
+      amount: 1
+    }
+    compraProducts = [...compraProducts, infoProduct]
+    cargarHtml();
+    console.log(infoProduct);
+    totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
+    totalCard = totalCard.toFixed(2);
+    const exist = compraProducts.some(product => product.id === infoProduct.id);
+    if (exist) {
+        const pro = compraProducts.map(product => {
+            if (product.id === infoProduct.id) {
+                product.amount++;
+                return product;
+            } else {
+                return product
+            }
+        });
+        compraProducts = [...pro];
+    } else {
+        compraProducts = [...buyThings, infoProduct]
+        countProduct++;
+    }
+    cargarHtml();
+  }
+  
+  function cargarHtml(product){
+    clearHtml();
+    compraProducts.forEach(product =>{
+      const {image, title, price, amount, id} = product;
+      const row = document.createElement('div');
+      row.classList.add('item');
+      row.innerHTML = `
+      <img src="${image}" alt="" width="20%">
+      <div class="item-content">
+      <h5>${title}</h5>
+      <h5 class="cart-price">${price}$</h5>
+      <h6>Amount: ${amount}</h6>
+      </div>
+      <span class="delete-product" data-id="${id}">X</span>
+      `;
+      contenBuy.appendChild(row)
+      
+    });
+  }
+  function clearHtml(){
+    contenBuy.innerHTML = '';
+  }
 })
 
-
- 
