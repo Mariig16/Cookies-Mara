@@ -133,7 +133,7 @@ a {
 .cart-products .item span{
   background-color: red;
   padding: 0px 5px;
-  border-radius: 50%;
+  border-radius: 10%;
   color: #fff;
   font-family: system-ui;
   cursor: pointer;
@@ -150,3 +150,92 @@ a {
   cursor: pointer;
   color: #a205fd;
 } 
+
+.formulario {
+  width: 400px;
+  height: auto;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+  border: 1px solid #520f70;
+  -webkit-box-shadow: 7px 13px 37px #000;
+          box-shadow: 7px 13px 37px #000;
+}
+
+.formulario .formulario_Text {
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #520f70;
+}
+
+.formulario .formulario_Style {
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #ff00cc;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+.formulario .formulario_Style:focus {
+  height: 60px;
+  background-color: #eca2b6;
+  color: #dee8f3;
+}
+
+.formulario .formulario_Btn {
+  width: 40%;
+  height: 45px;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 4px;
+  border: none;
+  color: black;
+  text-transform: uppercase;
+  background: -webkit-gradient(linear, right bottom, left top, from(#eeb3c2), to(#dee8f3));
+  background: linear-gradient(to left top, #eeb3c2, #dee8f3);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.formulario .formulario_Btn:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.formulario .formulario_Btn:active {
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+  background: -webkit-gradient(linear, right bottom, left top, from(#dee8f3), to(#eeb3c2));
+  background: linear-gradient(to left top, #dee8f3, #eeb3c2);
+}
+
+.elements_Contacto {
+  padding: 10px;
+  background-color: #eeb3c2;
+}
+
+.elements_Contacto .contacto_Info {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-size: 20px;
+  margin: auto;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.elements_Contacto .map {
+  margin: auto;
+  width: 90%;
+}
