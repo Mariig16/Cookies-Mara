@@ -8,6 +8,31 @@ document.addEventListener("DOMContentLoaded", () => {
   let totalCard = 0;
   let countProduct = 0;
   
+  let ingresar = document.querySelector("#ingresar");
+  ingresar.addEventListener("click", (e) => {
+    e.preventDefault();
+    swal.fire({
+      title: "ACCESO RESTRINGIDO",
+      text: "Debes iniciar sesión para acceder a este espacio",
+      icon: "warning",
+      confirmButtonText: "Ok",
+      cancelButtonText: "Cancelar",
+      padding: "3em",
+      background: "#f27474",
+      showCancelButton: true,
+      confirmButtonColor: "#000000",
+      cancelButtonColor: "#000000",
+      allowOutsideClick: false,
+      showCloseButton: false,
+    })
+    .then(resultado => {
+      if (resultado.value) {
+        // Hicieron click en "Sí"
+        console.log("*Redirección página de logeo*");
+        window.location.href = "login.html"
+      }
+    });
+  })
   
   function productos(){
     fetch('https://mariig16.github.io/apicokiesandmara/data/api.json')
@@ -77,9 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(infoProduct);
     totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
     totalCard = totalCard.toFixed(2);
+    
     const exist = compraProducts.some(product => product.id === infoProduct.id);
     if (exist) {
       const pro = compraProducts.map(product => {
+        console.log(product.length);
         if (product.id === infoProduct.id) {
           product.amount++;
           return product;
@@ -89,9 +116,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       compraProducts = [...pro];
     } else {
-      compraProducts = [...buyThings, infoProduct]
+      compraProducts = [...compraProducts, infoProduct]
       countProduct++;
+  
     }
+
     cargarHtml();
   }
   
@@ -111,8 +140,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <span class="delete-product" data-id="${id}">X</span>
       `;
       contenBuy.appendChild(row)
-      priceTotal.innerHTML = totalCard;
       amountProduct.innerHTML = countProduct;
+      priceTotal.innerHTML = totalCard;
+     
     });
   }
   function clearHtml(){
