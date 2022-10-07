@@ -19,8 +19,11 @@
       <a class="logo"></a>
       <nav>
         <ul>
-          <li><a href="/guides">Compra</a></li>
-          <li><a class="ingresar" role="button" id="ingresar">Productos<p class="count-product">0</p></a></li>
+          <li>
+            <img onmouseover="showCart(this)" class="cart" src="./image/116356.png" alt="">
+            <p class="count-product">0</p>
+          </li>     
+          <li><a class="ingresar" role="button" id="ingresar">Productos</a></li>
           <li><a href="#" target="_blank">Contacto</a></li>
         </ul>
       </nav>
@@ -45,32 +48,16 @@
         <div class="row mt-3">
           <div class="col">
             <h2>Carrito de compras</h2>
-            <!-- <div class="card-items my-3">
-              <table class="col-xs-2 col-xs-8 col-xs-2 table table-bordered" id="lista-usuarios" style="width: 80%">
-                <thead class="thead-dark">
-                  <tr class="table-info">
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">amount</th>
-                    <th scope="col">id
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div> -->
           </div>
         </div>
-      </div>  -->
-      <div class="cart-products" id="products-id">
-        <h3>Mi compra</h3>
-        <div class="card-items">
-         
-        </div>
-        <h2>Total: <strong class="delet-product price-total">0</strong> $</h2>
+      </div> 
+    </div>
+    <div class="cart-products" id="products-id">
+      <h3>Mi compra</h3>
+      <div class="card-items">
+        
       </div>
+      <h2>Total: <strong class="delet-product price-total">0</strong> $</h2>
     </div>
   </main>
   <footer class="footer text-center text-white">

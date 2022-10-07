@@ -48,15 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
       compraProducts = compraProducts.filter(product => product.id !== deleteId);
-      
       countProduct--;
     }
     if (compraProducts.length === 0) {
       priceTotal.innerHTML = 0;
       amountProduct.innerHTML = 0;
     }
-    
-    
     cargarHtml();
   }
   function addProductos(e){
@@ -105,11 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement('div');
       row.classList.add('item');
       row.innerHTML = `
-      <img src="${image}" alt="" width="20%">
+      <img src="${image}" alt="" width="5%">
       <div class="item-content">
-      <h5>${price}</h5>
+      <h5>Precio: ${price}</h5>
       <h5 class="cart-price">${title}$</h5>
-      <h6>Amount: ${amount}</h6>
+      <h6>Monto: ${amount}</h6>
       </div>
       <span class="delete-product" data-id="${id}">X</span>
       `;
